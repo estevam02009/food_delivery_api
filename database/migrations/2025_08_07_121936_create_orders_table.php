@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('restaurant_id')->constrained();
-            $table->enum('status', ['pending', 'processing', 'delivered', 'delivering', 'canceled'])->default('pending');
-            $table->string('delivery_addres');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Chave estrangeira para 'users'
+            $table->foreignId('restaurant_id')->constrained()->onDelete('cascade'); // Chave estrangeira para 'restaurants'
+            $table->string('status')->default('pending');
+            $table->string('delivery_address');
             $table->decimal('total_price', 8, 2);
-            // $table->enum('payment_method', ['credit_card', 'debit_card', 'money']);
             $table->timestamps();
         });
     }
