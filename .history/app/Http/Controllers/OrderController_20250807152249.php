@@ -89,14 +89,4 @@ class OrderController extends Controller
             return response()->json(['message' => 'Ocorreu um erro ao criar o pedido.', 'error' => $e->getMessage()], 500);
         }
     }
-
-    public function show(string $id)
-    {
-        // Pegar o usuário autenticado
-        $user = Auth::user();
-        // Buscar o pedido pelo ID
-        $order = $user->orders()->with('orderItems.product')->findOrFail($id);
-
-        return response()->json($order);
-    }
 }

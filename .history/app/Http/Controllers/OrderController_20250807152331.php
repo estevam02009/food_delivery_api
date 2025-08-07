@@ -95,7 +95,7 @@ class OrderController extends Controller
         // Pegar o usuário autenticado
         $user = Auth::user();
         // Buscar o pedido pelo ID
-        $order = $user->orders()->with('orderItems.product')->findOrFail($id);
+        $order = $user->orders()->find($id);
 
         return response()->json($order);
     }
