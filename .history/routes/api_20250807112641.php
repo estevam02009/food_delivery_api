@@ -10,7 +10,7 @@ use App\Http\Controllers\UserController;
 
 
 // Rotas públicas (sem autenticação)
-Route::apiResource('restaurants', RestaurantController::class)->only(['index', 'show', 'store']);
+Route::apiResource('restaurants', RestaurantController::class)->only(['index', 'show']);
 Route::apiResource('products', ProductController::class)->only(['index', 'show']);
 
 // Rotas protegidas por autenticação
@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('users', UserController::class);
 });
 
+Route::apiResource('restaurants', RestaurantController::class)->except(['index', 'show', 'store']);

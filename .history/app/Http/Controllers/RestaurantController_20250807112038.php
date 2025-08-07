@@ -15,7 +15,7 @@ class RestaurantController extends Controller
         return response()->json($restaurants);
     }
 
-    public function store(Request $request)
+    public function store()
     {
         // Valida os dados de entrada
         $validtedData = $request->validate([

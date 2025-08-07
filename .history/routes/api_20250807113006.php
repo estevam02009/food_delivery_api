@@ -15,7 +15,7 @@ Route::apiResource('products', ProductController::class)->only(['index', 'show']
 
 // Rotas protegidas por autenticação
 Route::middleware('auth:sanctum')->group(function () {
-    // Route::apiResource('restaurants', RestaurantController::class)->except(['index', 'show']);
+    Route::apiResource('restaurants', RestaurantController::class)->except(['index', 'show']);
     Route::apiResource('products', ProductController::class)->except(['index', 'show']);
     Route::apiResource('orders', OrderController::class);
     Route::apiResource('addresses', AddressController::class);
