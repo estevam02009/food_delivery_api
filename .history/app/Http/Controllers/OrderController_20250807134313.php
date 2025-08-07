@@ -72,9 +72,7 @@ class OrderController extends Controller
         } catch (\Exception $e) {
             // Se algo der errado, desfaz tudo
             DB::rollBack();
-
-            // Retorna o erro real, em vez da mensagem genérica
-            return response()->json(['message' => 'Ocorreu um erro ao criar o pedido.', 'error' => $e->getMessage()], 500);
+            return response()->json(['message' => 'Ocorreu um erro ao criar o pedido.'], 500);
         }
     }
 }

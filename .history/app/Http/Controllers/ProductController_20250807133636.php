@@ -44,11 +44,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        // Encontra o produto pelo ID
-        $product = Product::with('restaurant')->findOrFail($id);
-
-        // Retorna o produto encontrado
-        return response()->json($product);
+        //
     }
 
     /**
@@ -56,24 +52,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // Valida os dados de entrada
-        $validatedData = $request->validate([
-            'restaurant_id' => 'required|exists:restaurants,id',
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric|min:0',
-            'image_url' => 'nullable|url',
-            'is_available' => 'boolean',
-        ]);
-
-        // Encontra o produto pelo ID
-        // $product = Product::findOrFail($id);
-
-        // Atualiza o produto
-        $product->update($validatedData);
-
-        // Retorna o produto atualizado
-        return response()->json($product);
+        //
     }
 
     /**
@@ -81,13 +60,6 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        // Encontra o produto pelo ID
-        $product = Product::findOrFail($id);
-
-        // Remove o produto
-        $product->delete();
-
-        // Retorna uma resposta vazia com status 204
-        return response()->json(null, 204);
+        //
     }
 }

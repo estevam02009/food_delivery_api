@@ -67,7 +67,7 @@ class ProductController extends Controller
         ]);
 
         // Encontra o produto pelo ID
-        // $product = Product::findOrFail($id);
+        $product = Product::findOrFail($id);
 
         // Atualiza o produto
         $product->update($validatedData);
@@ -81,13 +81,6 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        // Encontra o produto pelo ID
-        $product = Product::findOrFail($id);
-
-        // Remove o produto
-        $product->delete();
-
-        // Retorna uma resposta vazia com status 204
-        return response()->json(null, 204);
+        //
     }
 }
