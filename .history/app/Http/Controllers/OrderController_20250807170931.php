@@ -102,14 +102,18 @@ class OrderController extends Controller
 
     public function updateStatus(Request $request, string $id)
     {
+        // Buscar o pedido pelo ID
         $order = Order::findOrFail($id);
 
+        // Valida o novo status
         $validatedData = $request->validate([
-            'status' => 'required|in:pending,processing,delivering,delivered,canceled',
+            'status' => 'required|in:pending,preparing,delivery,completed,canceled',
         ]);
 
+        // Atualiza o status do pedido
         $order->update(['status' => $validatedData['status']]);
 
+        // Retorna o pedido atualizado
         return response()->json($order);
     }
 }

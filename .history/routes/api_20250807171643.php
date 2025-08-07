@@ -20,7 +20,7 @@ Route::apiResource('products', ProductController::class)->only(['index', 'show']
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('restaurants', RestaurantController::class)->except(['index', 'show']);
     Route::apiResource('products', ProductController::class)->except(['index', 'show']);
-    Route::apiResource('orders', OrderController::class);
+    // Route::apiResource('orders', OrderController::class);
     Route::apiResource('addresses', AddressController::class);
     Route::apiResource('users', UserController::class);
 
