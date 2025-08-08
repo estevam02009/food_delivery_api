@@ -8,7 +8,6 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ReviewController;
 
 
 // Rotas públicas (sem autenticação)
@@ -31,8 +30,6 @@ Route::middleware('auth:sanctum')->group(function () {
     // Rota para atualizar o status de um pedido
     Route::put('/orders/{order}/status', [OrderController::class, 'updateStatus']);
 
-    // Rota para criar avaliações
-    Route::post('/{reviewableType}/{reviewableId}/reviews', [ReviewController::class, 'store']);
 
     // Rota para cancelar um pedido
     Route::patch('/orders/{order}/cancel', [OrderController::class, 'cancel']);

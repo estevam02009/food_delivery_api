@@ -8,7 +8,6 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ReviewController;
 
 
 // Rotas públicas (sem autenticação)
