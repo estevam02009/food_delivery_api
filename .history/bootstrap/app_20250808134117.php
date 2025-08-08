@@ -17,13 +17,12 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
+    ->withAuth(fn (AuthManager $auth) => [
+        Review::class => ReviewPolicy::class,
+    ])
     ->withMiddleware(function (Middleware $middleware): void {
         //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
-    })
-    ->withAuth(fn (AuthManager $auth) => [
-        Review::class => ReviewPolicy::class,
-    ])
-    ->create();
+    })->create();
