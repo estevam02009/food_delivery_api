@@ -7,7 +7,6 @@ use App\Models\Restaurant;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Events\ReviewCreated;
 
 class ReviewController extends Controller
 {

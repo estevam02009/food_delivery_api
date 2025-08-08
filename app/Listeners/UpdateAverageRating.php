@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Listeners;
+
+use App\Events\ReviewCreated;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
+
+class UpdateAverageRating
+{
+    /**
+     * Create the event listener.
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Handle the event.
+     */
+    public function handle(ReviewCreated $event): void
+    {
+
+        $reviewable = $event->review->reviewable;
+
+        $averageRating = $reviewable->reviews->avg('rating');
+
+        $reviewable->update([
+            'average_rating' => $averageRating
+        ]);
+    }
+}
